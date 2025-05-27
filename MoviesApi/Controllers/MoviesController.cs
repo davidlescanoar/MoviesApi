@@ -1,16 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
+using MoviesApi.Data;
 
 namespace MoviesApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class MoviesController : ControllerBase
     {
-        private readonly ILogger<MoviesController> _logger;
+        private readonly MoviesDbContext _context;
 
-        public MoviesController(ILogger<MoviesController> logger)
+        public MoviesController(MoviesDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
     }
 }
