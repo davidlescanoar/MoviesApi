@@ -8,5 +8,6 @@
         public int RunningTime { get; set; }
 
         public ICollection<Genre> Genres { get; set; } = new List<Genre>();
+        public ICollection<Rating> Ratings { get; set; } = new List<Rating>();
     }
 }
