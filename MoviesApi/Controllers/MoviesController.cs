@@ -20,6 +20,9 @@ namespace MoviesApi.Controllers
         [HttpGet]
         public IActionResult GetFiltered([FromQuery] string? title, [FromQuery] int? year, [FromQuery] string? genre)
         {
+            if (title == null && year == null && genre == null)
+                return BadRequest();
+
             var result = _movieService.GetFilteredMovies(title, year, genre);
             return result.Any() ? Ok(result) : NotFound();
         }
