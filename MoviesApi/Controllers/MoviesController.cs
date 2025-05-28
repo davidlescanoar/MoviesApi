@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using MoviesApi.Data;
 using MoviesApi.Services.Interfaces;
 
 namespace MoviesApi.Controllers
@@ -8,12 +7,10 @@ namespace MoviesApi.Controllers
     [Route("api/[controller]")]
     public class MoviesController : ControllerBase
     {
-        private readonly MoviesDbContext _context;
         private readonly IMovieService _movieService;
 
-        public MoviesController(MoviesDbContext context, IMovieService movieService)
+        public MoviesController(IMovieService movieService)
         {
-            _context = context;
             _movieService = movieService;
         }
 
